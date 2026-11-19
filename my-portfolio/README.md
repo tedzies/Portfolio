@@ -20,6 +20,25 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Portfolio configuration
+
+Add the Supabase project URL and a public anon or publishable key to
+`my-portfolio/.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-public-key
+```
+
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` is also supported. The `projects` table
+should provide `id`, `title`, `category`, `summary`, `details`, `tech_stack`,
+`image_url`, `live_url`, `repo_url`, `featured`, and `created_at`. Configure
+Supabase row-level security to allow public read access only to portfolio
+projects intended for display.
+
+The contact form is registered through `public/__forms.html` for Netlify form
+detection. Keep its field names in sync with the React contact form.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
